@@ -25,5 +25,14 @@ jobs:
         run: |
           dotnet restore
           dotnet build
-      - name: Build docker image
-        run: docker build -t niklasallard1/kyh-docker-example .
+
+      - name: Login to dockerhub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+
+
+
+      - name: Build and puch docker image
+        run: 
+          docker build -t niklasallard1/kyh-docker-example .
+          docker push niklasallard1/kyh-docker-example
