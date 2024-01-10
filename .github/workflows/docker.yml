@@ -26,4 +26,4 @@ jobs:
           dotnet restore
           dotnet build
       - name: Build docker image
-        run: docker build -t niklasallard1/KYH-docker-example
+        run: docker build -t niklasallard1/KYH-docker-example .
